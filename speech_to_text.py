@@ -15,7 +15,7 @@ def callback(indata, frames, time, status):
         print(status, file=sys.stderr)
     q.put(bytes(indata))
 
-def record_voice(prompt="🎙 I'm listening, sir...", timeout=None, phrase_time_limit=None):
+def record_voice(prompt="🎙 I'm listening, madame...", timeout=None, phrase_time_limit=None):
 
     print(prompt)
     rec = vosk.KaldiRecognizer(model, 16000)
@@ -29,4 +29,5 @@ def record_voice(prompt="🎙 I'm listening, sir...", timeout=None, phrase_time_
                 text = result.get("text", "")
                 if text.strip():
                     print("👤 You:", text)
+
                     return text
